@@ -6,6 +6,7 @@
 
 makeCacheMatrix <- function(x = matrix()) {
   # browser()
+  # inverse_result <- NULL
   inverse_result <- NULL  # a dummy variable for caching the result
   set <- function(y){
     x <<- y
@@ -28,8 +29,10 @@ makeCacheMatrix <- function(x = matrix()) {
 ## Write a short comment describing this function
 
 cacheSolve <- function(x, ...) {
+  
         ## Return a matrix that is the inverse of 'x'
-  inverse_result <- x$GetInverseResult
+  inverse_result <- x$GetInverseResult()
+  
   if(!is.null(inverse_result)){
     message('getting cached data')
     return(inverse_result)
@@ -43,3 +46,5 @@ cacheSolve <- function(x, ...) {
 some_matrix = matrix( c(2, 4, 3, 1, 5, 7, 1 , 2, 3), nrow=3,   ncol=3) 
 
 matrix_functions <- makeCacheMatrix(some_matrix)
+cache_solve_output <- cacheSolve(matrix_functions)
+cache_solve_output <- cacheSolve(matrix_functions)
