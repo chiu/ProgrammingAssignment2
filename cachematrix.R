@@ -46,5 +46,14 @@ cacheSolve <- function(x, ...) {
 some_matrix = matrix( c(2, 4, 3, 1, 5, 7, 1 , 2, 3), nrow=3,   ncol=3) 
 
 matrix_functions <- makeCacheMatrix(some_matrix)
+time_start <- Sys.time()
 cache_solve_output <- cacheSolve(matrix_functions)
+time_end <- Sys.time()
+time_diff <- time_end - time_start
+print(paste0('for non caching; time diff is:', time_diff))
+
+time_start <- Sys.time()
 cache_solve_output <- cacheSolve(matrix_functions)
+time_end <- Sys.time()
+time_diff <- time_end - time_start
+print(paste0('for caching time diff is:', time_diff))
